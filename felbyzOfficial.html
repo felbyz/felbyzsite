@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Felbyz</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&family=Bitcount+Grid+Single:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: #0d0d0d;
+      font-family: sans-serif;
+      overflow: hidden;
+    }
+
+    video.bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .layout {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-direction: row; /* default for desktop */
+}
+
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 150px);
+      grid-template-rows: repeat(2, 150px);
+      gap: 20px;
+    }
+
+    .card, .big-card {
+      perspective: 1000px;
+    }
+
+    .card {
+      width: 150px;
+      height: 150px;
+    }
+
+    .big-card {
+      width: 320px;
+      height: 320px;
+      margin-top: -10px;
+    }
+
+    .card-inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+
+    .card:hover .card-inner,
+.big-card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+
+    .card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backface-visibility: hidden;
+
+  background: rgba(255, 255, 255, 0.01);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+
+  box-shadow:
+    1px 1px 1px 0px rgba(255, 255, 255, 0.1) inset,
+    -1px -1px 1px 0px rgba(255, 255, 255, 0.30) inset,
+    -1px -1px 1px 0px rgba(161, 161, 161, 0.0) inset,
+    1px 1px 4px 0px rgba(255, 255, 255, 0.0) inset;
+  
+  background-image: url(Rectangle\ 1.svg); /* your uploaded SVG */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+    .card-back {
+      transform: rotateY(180deg);
+      color: white;
+      font-size: 1rem;
+      font-family: Bitcount Grid Single
+ ;
+    }
+
+    .card-front img, .card-back img {
+      max-width: 50px;
+      max-height: 50px;
+      width: auto;
+      height: auto;
+    }
+
+    .big-card img {
+      max-width: 100px;
+      max-height: 100px;
+      width: auto;
+      height: auto;
+    }
+
+    .card-text {
+  text-align: center;
+  display: block;
+  padding: 0 10px; /* optional: adds breathing room for longer text */
+}
+
+
+    a {
+      text-decoration: none;
+    }
+
+    .intro-container {
+  position: absolute;
+  top: 20%;
+  width: 100%;
+  text-align: center;
+  padding: 0 50px;
+}
+
+#intro-text {
+  line-height: 1.8;
+  font-family: "Bitcount Grid Single", monospace;
+  font-size: 1rem;
+  color: white;
+  overflow: hidden;
+  border-right: 2px solid rgba(255, 255, 255, 0.7);
+  max-width: 35%;
+  margin: 0 auto;
+  animation: blink 0.75s step-end infinite;
+  word-wrap: break-word;
+  display: inline-block;
+}
+
+@media (max-width: 768px) {
+  .layout {
+    flex-direction: column; /* stack items vertically on mobile */
+  }
+
+  .big-card {
+    width: 250px;
+    height: 250px;
+    margin-top: 0;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 150px); /* adjust for smaller width */
+    grid-template-rows: auto;
+    gap: 16px;
+  }
+
+  .intro-container {
+    top: 10%;
+    padding: 0 10px;
+  }
+
+  #intro-text {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+}
+
+
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 90% }
+}
+
+@keyframes blink {
+  50% { border-color: transparent }
+}
+
+
+
+  </style>
+</head>
+<body>
+  <video autoplay muted loop class="bg-video">
+    <source src="Video Test 1.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="intro-container">
+  <p id="intro-text"></p>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const text = "Hey there, I'm Fernando — a web designer and content creator based in Los Angeles. I’m 27 and I love building keyboards and designing cool things for fun.";
+    const el = document.getElementById("intro-text");
+    let i = 0;
+
+    function type() {
+      if (i < text.length) {
+        el.textContent += text.charAt(i);
+        i++;
+        setTimeout(type, 60); // speed of typing
+      }
+    }
+
+    type();
+  });
+</script>
+
+
+
+  <div class="wrapper">
+    <div class="layout">
+      <!-- Big Card -->
+      <div class="big-card">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="logo.svg" alt="Logo" />
+          </div>
+          <div class="card-back">
+            <img src="Fernando Memoji.svg" alt="Your Photo" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Grid of Cards -->
+      <div class="grid">
+        <a href="https://www.instagram.com/felbyz/" target="_blank">
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-front">
+                <img src="instagram.svg" alt="Instagram" />
+              </div>
+              <div class="card-back">Instagram</div>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://x.com/Felbyz" target="_blank">
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-front">
+                <img src="twitter.svg" alt="Twitter" />
+              </div>
+              <div class="card-back">Twitter</div>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://www.youtube.com/@Felbyz" target="_blank">
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-front">
+                <img src="Youtube 1.svg" alt="YouTube" />
+              </div>
+              <div class="card-back">YouTube</div>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://www.tiktok.com/@felbyz" target="_blank">
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-front">
+                <img src="tiktok.svg" alt="TikTok" />
+              </div>
+              <div class="card-back">TikTok</div>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://steamcommunity.com/id/Felbyz/" target="_blank">
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-front">
+                <img src="steam.svg" alt="Steam" />
+              </div>
+              <div class="card-back">Steam</div>
+            </div>
+          </div>
+        </a>
+
+        <div class="card" id="gmail-card" style="position: relative; cursor: pointer;">
+  <div class="card-inner">
+    <div class="card-front">
+      <img src="gmail.svg" alt="business" />
+    </div>
+    <div class="card-back"><span class="card-text">Business Inquiry</span></div>
+  </div>
+
+  <!-- Bubble chat (hidden by default) -->
+  <div id="email-bubble" style="
+    position: absolute;
+    top: -45px;
+    right: 10px;
+    background: #222;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.85rem;
+    box-shadow: 0 0 8px rgba(0,0,0,0.6);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    white-space: nowrap;
+    user-select: none;
+  ">
+    Email <strong>contact@felbyz.com</strong> copied!
+  </div>
+</div>
+
+
+
+        <a href="https://discord.gg/bxP7qXRb" target="_blank">
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-front">
+                <img src="discord.svg" alt="Discord" />
+              </div>
+              <div class="card-back">Discord</div>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://www.twitch.tv/felbyz" target="_blank">
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-front">
+                <img src="twitch.svg" alt="LinkedIn" />
+              </div>
+              <div class="card-back">Twitch</div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <script>
+  document.getElementById("gmail-card").addEventListener("click", function () {
+    const email = "contact@felbyz.com";
+
+    // Copy email to clipboard
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(email).then(() => {
+        showBubble();
+      }, () => {
+        alert("Failed to copy email to clipboard.");
+      });
+    } else {
+      // Fallback for insecure contexts
+      const textArea = document.createElement("textarea");
+      textArea.value = email;
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      try {
+        document.execCommand('copy');
+        showBubble();
+      } catch (err) {
+        alert("Failed to copy email to clipboard.");
+      }
+      document.body.removeChild(textArea);
+    }
+
+    function showBubble() {
+      const bubble = document.getElementById("email-bubble");
+      bubble.style.opacity = "1";
+      bubble.style.pointerEvents = "auto";
+
+      // Hide bubble after 3 seconds
+      setTimeout(() => {
+        bubble.style.opacity = "0";
+        bubble.style.pointerEvents = "none";
+      }, 3000);
+    }
+  });
+</script>
+
+</body>
+</html>
