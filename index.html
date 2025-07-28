@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,12 +10,18 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&family=Bitcount+Grid+Single:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-  <style>
+<link href="https://fonts.googleapis.com/css2?family=Dynalight&display=swap" rel="stylesheet">
+
+<style>
     body {
       margin: 0;
       padding: 0;
       height: 100vh;
-      background: #0d0d0d;
+
+  background: linear-gradient(346deg,#a50000,#ff0000,#000000,#000000);
+  background-size: 240% 240%;
+  animation: gradient-animation 16s ease infinite;
+         
       font-family: sans-serif;
       overflow: hidden;
     }
@@ -255,15 +262,39 @@
   50% { border-color: transparent }
 }
 
+.gradient-background {
+  background: linear-gradient(346deg,#a50000,#ff0000,#000000,#000000);
+  background-size: 240% 240%;
+  animation: gradient-animation 16s ease infinite;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.custom-name {
+  font-family: "Dynalight", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2.2rem;
+  color: white;
+  letter-spacing: 1px;
+  text-align: center;
+}
 
 
   </style>
 </head>
 <body>
-  <video autoplay muted loop class="bg-video">
-    <source src="Video Test 1.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+
 
   <div class="intro-container">
   <p id="intro-text"></p>
@@ -278,7 +309,7 @@
             <img src="logo.svg" alt="Logo" />
           </div>
           <div class="card-back">
-            <img src="Fernando Memoji.svg" alt="Your Photo" />
+            <span class="custom-name">Fernando Leite</span>
           </div>
         </div>
       </div>
