@@ -19,6 +19,25 @@
       overflow: hidden;
     }
 
+    body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  font-family: sans-serif;
+  overflow: hidden;
+
+  background: linear-gradient(-45deg, #1a1a1a, #333333, #000000, #4d4d4d);
+  background-size: 400% 400%;
+  animation: gradient 12s ease infinite;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
     video.bg-video {
       position: fixed;
       top: 0;
@@ -206,34 +225,7 @@
   </style>
 </head>
 <body>
-  <video autoplay muted loop class="bg-video">
-    <source src="Video Test 1.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-
-  <div class="intro-container">
-  <p id="intro-text"></p>
-</div>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const text = "Hey there, I'm Fernando — a web designer and content creator based in Los Angeles. I’m 27 and I love building keyboards and designing cool things for fun.";
-    const el = document.getElementById("intro-text");
-    let i = 0;
-
-    function type() {
-      if (i < text.length) {
-        el.textContent += text.charAt(i);
-        i++;
-        setTimeout(type, 60); // speed of typing
-      }
-    }
-
-    type();
-  });
-</script>
-
-
+ 
 
   <div class="wrapper">
     <div class="layout">
