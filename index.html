@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,9 +7,9 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="logo.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&family=Bitcount+Grid+Single:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Dynalight&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&family=Bitcount+Grid+Single:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dynalight&display=swap" rel="stylesheet">
 
 <style>
     body {
@@ -18,9 +17,10 @@
       padding: 0;
       height: 100vh;
 
-  background: linear-gradient(346deg,#a50000,#ff0000,#000000,#000000);
-  background-size: 240% 240%;
-  animation: gradient-animation 16s ease infinite;
+      /* Updated gradient: grey + black */
+      background: linear-gradient(346deg, #444444, #888888, #000000, #000000);
+      background-size: 240% 240%;
+      animation: gradient-animation 12s ease infinite;
          
       font-family: sans-serif;
       overflow: hidden;
@@ -44,12 +44,11 @@
     }
 
     .layout {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  flex-direction: row; /* default for desktop */
-}
-
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      flex-direction: row;
+    }
 
     .grid {
       display: grid;
@@ -82,44 +81,41 @@
     }
 
     .card:hover .card-inner,
-.big-card:hover .card-inner {
-  transform: rotateY(180deg);
-}
-
+    .big-card:hover .card-inner {
+      transform: rotateY(180deg);
+    }
 
     .card-front, .card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  backface-visibility: hidden;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      backface-visibility: hidden;
 
-  background: rgba(255, 255, 255, 0.01);
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
+      background: rgba(255, 255, 255, 0.01);
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
 
-  box-shadow:
-    1px 1px 1px 0px rgba(255, 255, 255, 0.1) inset,
-    -1px -1px 1px 0px rgba(255, 255, 255, 0.30) inset,
-    -1px -1px 1px 0px rgba(161, 161, 161, 0.0) inset,
-    1px 1px 4px 0px rgba(255, 255, 255, 0.0) inset;
+      box-shadow:
+        1px 1px 1px 0px rgba(255, 255, 255, 0.1) inset,
+        -1px -1px 1px 0px rgba(255, 255, 255, 0.30) inset,
+        -1px -1px 1px 0px rgba(161, 161, 161, 0.0) inset,
+        1px 1px 4px 0px rgba(255, 255, 255, 0.0) inset;
   
-  background-image: url(Rectangle\ 1.svg); /* your uploaded SVG */
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
+      background-image: url(Rectangle\ 1.svg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
 
     .card-back {
       transform: rotateY(180deg);
       color: white;
       font-size: 1rem;
-      font-family: Bitcount Grid Single
- ;
+      font-family: Bitcount Grid Single;
     }
 
     .card-front img, .card-back img {
@@ -137,160 +133,75 @@
     }
 
     .card-text {
-  text-align: center;
-  display: block;
-  padding: 0 10px; /* optional: adds breathing room for longer text */
-}
-
+      text-align: center;
+      display: block;
+      padding: 0 10px;
+    }
 
     a {
       text-decoration: none;
     }
 
-    .intro-container {
-  position: absolute;
-  top: 20%;
-  width: 100%;
-  text-align: center;
-  padding: 0 50px;
-}
+    @media (max-width: 768px) {
+      body {
+        height: auto;
+        overflow: auto;
+      }
 
-#intro-text {
-  line-height: 1.8;
-  font-family: "Bitcount Grid Single", monospace;
-  font-size: 1rem;
-  color: white;
-  overflow: hidden;
-  border-right: 2px solid rgba(255, 255, 255, 0.7);
-  max-width: 35%;
-  margin: 0 auto;
-  animation: blink 0.75s step-end infinite;
-  word-wrap: break-word;
-  display: inline-block;
-}
+      .big-card {
+        width: 250px;
+        height: 250px;
+        margin-top: 0;
+      }
 
-
-@media (max-width: 768px) {
-  body {
-    height: auto;
-    overflow: auto;
-  }
-
-  .big-card {
-    width: 250px;
-    height: 250px;
-    margin-top: 0;
-  }
-
-  .wrapper {
-    align-items: flex-start;
-    margin-top: 30px;
-    height: auto;
-  }
+      .wrapper {
+        align-items: flex-start;
+        margin-top: 30px;
+        height: auto;
+      }
   
-  .layout {
-    flex-direction: column;
-    gap: 8px;
-    align-items: center;
-    width: 100%;
-    max-width: 100vw;
-    padding: 12px;
-  }
+      .layout {
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;
+        width: 100%;
+        max-width: 100vw;
+        padding: 12px;
+      }
   
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto;
-    gap: 8px;
-    justify-items: center;
-    width: 100%;
-    max-width: 100%;
-    padding: 0;
-  }
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        gap: 8px;
+        justify-items: center;
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+      }
 
-  .grid a:nth-child(odd) {
-    justify-self: end;
-  }
+      .grid a:nth-child(odd) {
+        justify-self: end;
+      }
 
-  .grid a:nth-child(even), .grid #gmail-card {
-    justify-self: start;
-  }
+      .grid a:nth-child(even), .grid #gmail-card {
+        justify-self: start;
+      }
+    }
 
-  .intro-container {
-    top: 5%;
-    padding: 0 2vw;
-    position: relative;
-    min-height: 103px;
-    margin-top: 30px;
-    width: 100vw;
-    max-width: 100vw;
-    box-sizing: border-box;
-    overflow-x: hidden;
-    padding: 12px;
-  }
-  
-  #intro-text {
-    font-size: 0.85rem;
-    line-height: 1.4;
-    max-width: 96vw;
-    padding: 0;
-    box-sizing: border-box;
-    overflow-x: hidden;
-    word-break: break-word;
-    overflow-wrap: anywhere;
-    border-right: none;
-  }
-  
-  #email-bubble {
-    right: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    min-width: 60vw;
-    font-size: 0.8rem;
-    padding: 6px 4px;
-    text-align: center;
-    word-break: break-all;
-  }
-}
-
-
-@keyframes typing {
-  from { width: 0 }
-  to { width: 90% }
-}
-
-@keyframes blink {
-  50% { border-color: transparent }
-}
-
-.gradient-background {
-  background: linear-gradient(346deg,#a50000,#ff0000,#000000,#000000);
-  background-size: 240% 240%;
-  animation: gradient-animation 16s ease infinite;
-}
-
-@keyframes gradient-animation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-
-
+    @keyframes gradient-animation {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
   </style>
 </head>
 <body>
-
-
-  <div class="intro-container">
-  <p id="intro-text"></p>
-</div>
-
   <div class="wrapper">
     <div class="layout">
       <!-- Big Card -->
@@ -363,36 +274,34 @@
         </a>
 
         <div class="card" id="gmail-card" style="position: relative; cursor: pointer;">
-  <div class="card-inner">
-    <div class="card-front">
-      <img src="gmail.svg" alt="business" />
-    </div>
-    <div class="card-back"><span class="card-text">Business Inquiry</span></div>
-  </div>
+          <div class="card-inner">
+            <div class="card-front">
+              <img src="gmail.svg" alt="business" />
+            </div>
+            <div class="card-back"><span class="card-text">Business Inquiry</span></div>
+          </div>
 
-  <!-- Bubble chat (hidden by default) -->
-  <div id="email-bubble" style="
-    position: absolute;
-    top: -45px;
-    right: 10px;
-    background: #222;
-    color: white;
-    padding: 8px 12px;
-    border-radius: 12px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 0.85rem;
-    box-shadow: 0 0 8px rgba(0,0,0,0.6);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-    white-space: nowrap;
-    user-select: none;
-  ">
-    Email <strong>contact@felbyz.com</strong> copied!
-  </div>
-</div>
-
-
+          <!-- Bubble chat -->
+          <div id="email-bubble" style="
+            position: absolute;
+            top: -45px;
+            right: 10px;
+            background: #222;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 12px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.85rem;
+            box-shadow: 0 0 8px rgba(0,0,0,0.6);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            white-space: nowrap;
+            user-select: none;
+          ">
+            Email <strong>contact@felbyz.com</strong> copied!
+          </div>
+        </div>
 
         <a href="https://discord.gg/bxP7qXRb" target="_blank">
           <div class="card">
@@ -409,7 +318,7 @@
           <div class="card">
             <div class="card-inner">
               <div class="card-front">
-                <img src="twitch.svg" alt="LinkedIn" />
+                <img src="twitch.svg" alt="Twitch" />
               </div>
               <div class="card-back">Twitch</div>
             </div>
@@ -420,63 +329,41 @@
   </div>
 
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const text = "Hey there, I'm Fernando — a web designer and content creator based in Los Angeles. I’m 27 and I love building keyboards and designing cool things for fun.";
-      const el = document.getElementById("intro-text");
-      let i = 0;
+    document.getElementById("gmail-card").addEventListener("click", function () {
+      const email = "contact@felbyz.com";
 
-      function type() {
-        if (i < text.length) {
-          el.textContent += text.charAt(i);
-          i++;
-          setTimeout(type, 60); // speed of typing
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(email).then(() => {
+          showBubble();
+        }, () => {
+          alert("Failed to copy email to clipboard.");
+        });
+      } else {
+        const textArea = document.createElement("textarea");
+        textArea.value = email;
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        try {
+          document.execCommand('copy');
+          showBubble();
+        } catch (err) {
+          alert("Failed to copy email to clipboard.");
         }
+        document.body.removeChild(textArea);
       }
 
-      type();
+      function showBubble() {
+        const bubble = document.getElementById("email-bubble");
+        bubble.style.opacity = "1";
+        bubble.style.pointerEvents = "auto";
+
+        setTimeout(() => {
+          bubble.style.opacity = "0";
+          bubble.style.pointerEvents = "none";
+        }, 3000);
+      }
     });
   </script>
-
-  <script>
-  document.getElementById("gmail-card").addEventListener("click", function () {
-    const email = "contact@felbyz.com";
-
-    // Copy email to clipboard
-    if (navigator.clipboard && window.isSecureContext) {
-      navigator.clipboard.writeText(email).then(() => {
-        showBubble();
-      }, () => {
-        alert("Failed to copy email to clipboard.");
-      });
-    } else {
-      // Fallback for insecure contexts
-      const textArea = document.createElement("textarea");
-      textArea.value = email;
-      document.body.appendChild(textArea);
-      textArea.focus();
-      textArea.select();
-      try {
-        document.execCommand('copy');
-        showBubble();
-      } catch (err) {
-        alert("Failed to copy email to clipboard.");
-      }
-      document.body.removeChild(textArea);
-    }
-
-    function showBubble() {
-      const bubble = document.getElementById("email-bubble");
-      bubble.style.opacity = "1";
-      bubble.style.pointerEvents = "auto";
-
-      // Hide bubble after 3 seconds
-      setTimeout(() => {
-        bubble.style.opacity = "0";
-        bubble.style.pointerEvents = "none";
-      }, 3000);
-    }
-  });
-</script>
-
 </body>
 </html>
