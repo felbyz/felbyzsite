@@ -9,15 +9,15 @@
       .cls-2 {
         fill: #c52228;
         font-family: Bitter-BlackItalic, Bitter;
-        font-size: 11.87px;
+        font-size: 15.62px;
         font-style: italic;
         font-weight: 800;
       }
     </style>
   </defs>
-  <polygon class="cls-1" points="332.12 133 287.91 179.89 58.83 198.64 304.21 198.64 377.93 133 332.12 133"/>
-  <polygon class="cls-1" points="197.08 275 241.29 228.11 470.37 209.36 224.99 209.36 151.27 275 197.08 275"/>
-  <polyline class="cls-1" points="280 229 238 277 205.25 277 245 233"/>
-  <polyline class="cls-1" points="251.3 179.17 294 132 325.59 132 284 176"/>
-  <text class="cls-2" transform="translate(384.32 141.63) scale(2.1 1)"><tspan x="0" y="0">TM</tspan></text>
+  <polygon class="cls-1" points="360.85 110.5 302.67 172.2 1.22 196.88 324.13 196.88 421.14 110.5 360.85 110.5"/>
+  <polygon class="cls-1" points="183.15 297.37 241.33 235.67 542.78 210.99 219.87 210.99 122.86 297.37 183.15 297.37"/>
+  <polyline class="cls-1" points="292.27 236.83 237 300 193.9 300 246.21 242.1"/>
+  <polyline class="cls-1" points="254.49 171.25 310.69 109.18 352.27 109.18 297.53 167.09"/>
+  <text class="cls-2" transform="translate(429.55 121.85) scale(2.1 1)"><tspan x="0" y="0">TM</tspan></text>
 </svg>
