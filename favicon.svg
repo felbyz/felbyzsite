@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Final" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 544 408">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        fill: #c52228;
+        font-family: Bitter-BlackItalic, Bitter;
+        font-size: 11.87px;
+        font-style: italic;
+        font-weight: 800;
+      }
+    </style>
+  </defs>
+  <polygon class="cls-1" points="332.12 133 287.91 179.89 58.83 198.64 304.21 198.64 377.93 133 332.12 133"/>
+  <polygon class="cls-1" points="197.08 275 241.29 228.11 470.37 209.36 224.99 209.36 151.27 275 197.08 275"/>
+  <polyline class="cls-1" points="280 229 238 277 205.25 277 245 233"/>
+  <polyline class="cls-1" points="251.3 179.17 294 132 325.59 132 284 176"/>
+  <text class="cls-2" transform="translate(384.32 141.63) scale(2.1 1)"><tspan x="0" y="0">TM</tspan></text>
+</svg>
