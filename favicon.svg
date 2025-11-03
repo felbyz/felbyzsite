@@ -1,23 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="Final" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 544 408">
+<svg id="Final" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 545 330">
   <defs>
     <style>
       .cls-1 {
         fill: #fff;
       }
-
-      .cls-2 {
-        fill: #c52228;
-        font-family: Bitter-BlackItalic, Bitter;
-        font-size: 15.62px;
-        font-style: italic;
-        font-weight: 800;
-      }
     </style>
   </defs>
-  <polygon class="cls-1" points="360.85 110.5 302.67 172.2 1.22 196.88 324.13 196.88 421.14 110.5 360.85 110.5"/>
-  <polygon class="cls-1" points="183.15 297.37 241.33 235.67 542.78 210.99 219.87 210.99 122.86 297.37 183.15 297.37"/>
-  <polyline class="cls-1" points="292.27 236.83 237 300 193.9 300 246.21 242.1"/>
-  <polyline class="cls-1" points="254.49 171.25 310.69 109.18 352.27 109.18 297.53 167.09"/>
-  <text class="cls-2" transform="translate(429.55 121.85) scale(2.1 1)"><tspan x="0" y="0">TM</tspan></text>
+  <polygon class="cls-1" points="365.51 77.57 304.28 142.5 -12.97 168.48 326.86 168.48 428.96 77.57 365.51 77.57"/>
+  <polygon class="cls-1" points="178.49 274.23 239.72 209.3 556.97 183.32 217.14 183.32 115.04 274.23 178.49 274.23"/>
+  <polyline class="cls-1" points="293.33 210.52 235.16 277 189.81 277 244.86 216.06"/>
+  <polyline class="cls-1" points="253.57 141.51 312.72 76.18 356.47 76.18 298.87 137.12"/>
 </svg>
